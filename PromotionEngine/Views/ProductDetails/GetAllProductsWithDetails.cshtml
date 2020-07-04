@@ -1,0 +1,71 @@
+﻿@model PromotionEngine.Logic.Models.ProductBuyModel
+
+@{
+	ViewData["Title"] = "Home";
+}
+
+<h2>Product Details</h2>
+
+@using (@Html.BeginForm("GetProductCardTotal", "ProductCart", FormMethod.Post))
+{
+	@Html.ValidationSummary(true) 
+	<div class="product-details-add">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>
+						@Html.DisplayName("Unit")
+					</th>
+					<th>
+						@Html.DisplayName("ProductUnitPrice")
+					</th>
+					<th>
+						@Html.DisplayName("Buy")
+					</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var item in Model.productCartModel)
+				{
+					<tr>
+						<td>
+							@Html.TextBoxFor(modelItem => item.productId, new { @readonly = "true", style = "width:20px;border-style: none;" })
+						</td>
+						<td>
+							@Html.DisplayFor(modelItem => item.productUnitPrice)
+						</td>
+						<td>
+							@Html.TextBoxFor(modelItem => item.productUnitcount, null, new { @type = "number", @min=0, @onkeypress = "return event.charCode >= 48" })
+							@Html.ValidationMessageFor(modelItem => item.productUnitcount)
+						</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+
+	<div class="product-coupon-options">
+		<h2>Apply Coupon</h2>
+		@foreach (var item in Model.productCouponModel)
+		{
+			
+			<span> @Html.RadioButton("Coupon", item.couponName, item.couponSelected) @Html.Label(item.couponDescription) </span>
+		}
+	</div>
+	<hr/>
+	<div class="product-addToCart-button">
+		<h2>Check Out</h2>
+		<input type="submit" name="btnCheckTotal" value="CheckTotal" />
+	</div>
+
+
+}
+
+@Html.Partial("~/Views/ProductCart/GetProductCardTotal.cshtml", Model)
+
+
+
+
+
+

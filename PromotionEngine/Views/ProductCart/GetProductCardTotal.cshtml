@@ -1,0 +1,14 @@
+﻿@model PromotionEngine.Logic.Models.ProductBuyModel
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="GetProductCardTotal">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+				<div class="form-group">
+					@Html.LabelFor(model => model.productBuyTotalAmount)
+					@Html.TextBoxFor(model => model.productBuyTotalAmount, new { @readonly = "true", style = "width:40px;" })
+			   </div>
+        </form>
+    </div>
+</div>
