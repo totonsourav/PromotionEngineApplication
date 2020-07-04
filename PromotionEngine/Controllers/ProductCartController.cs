@@ -9,7 +9,7 @@ namespace PromotionEngine.Core.Controllers
 {
 	/// <summary>
 	/// This controller includes all the functions related to the items which the user has added
-	/// to the cart so that he/she can progress for buying
+	/// to the cart so that he/she can progress for the buying of the selected units
 	/// </summary>
 	public class ProductCartController : Controller
     {
@@ -18,6 +18,7 @@ namespace PromotionEngine.Core.Controllers
 		  {
 				_productCartLogic = productCartLogic;
 		  }
+
 		  /// <summary>
 		  /// Get the total amount of the items which the user has added into the cart for the checkout process
 		  /// </summary>
@@ -43,6 +44,7 @@ namespace PromotionEngine.Core.Controllers
 						i++;
 					}
 
+					// Calling the calculate function to calculate based on the user's selected units
 					var productBuyModel = _productCartLogic.CalculateTotalFromProductCart(productCartModel, productCouponApplied);
 					HttpContext.Session.SetObject("productBuyModel", productBuyModel);
 
@@ -55,7 +57,7 @@ namespace PromotionEngine.Core.Controllers
 			}
 			catch(Exception ex)
 			{
-				return RedirectToAction("GetAllProductsWithDetails", "ProductDetails");
+				return View();
 			}
         }
     }

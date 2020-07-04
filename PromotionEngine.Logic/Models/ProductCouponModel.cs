@@ -2,6 +2,9 @@
 
 namespace PromotionEngine.Logic.Models
 {
+	/// <summary>
+	/// This class includes the properties of each available coupon's
+	/// </summary>
 	public class ProductCouponModel
     {
 		public int couponId { get; set; }

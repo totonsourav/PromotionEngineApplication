@@ -1,11 +1,9 @@
-﻿using System;
-
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-
+using PromotionEngine.Core.Utility;
 using PromotionEngine.Logic.Logic.Interface;
 using PromotionEngine.Logic.Models;
-using PromotionEngine.Core.Utility;
+using System;
 
 namespace PromotionEngine.Core.Controllers
 {

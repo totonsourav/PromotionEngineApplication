@@ -3,8 +3,14 @@ using System.ComponentModel;
 
 namespace PromotionEngine.Logic.Models
 {
+	/// <summary>
+	/// This class includes the properties regarding -
+	/// - the units the user has selected 
+	/// - the coupon which the user has selected
+	/// - the total amount after the calculation
+	/// </summary>
 	public class ProductBuyModel
-    {
+   {
 		public List<ProductCartModel> productCartModel { get; set; }
 
 		public List<ProductCouponModel> productCouponModel { get; set; }

@@ -1,14 +1,11 @@
-﻿using PromotionEngine.Logic.Logic.Interface;
-using PromotionEngine.Logic.Logic.Abstract;
+﻿using PromotionEngine.Logic.Logic.Abstract;
+using PromotionEngine.Logic.Logic.Interface;
 using PromotionEngine.Logic.Models;
 using System;
 using System.Collections.Generic;
 
 namespace PromotionEngine.Logic.Logic.Implementation
 {
-	/// <summary>
-	/// 
-	/// </summary>
 	public class ProductPromotionLogic : IProductPromotionLogic
 	{
 		AProductCouponsAlgoLogic _aProductCouponsAlgoLogic = null;
@@ -18,9 +15,11 @@ namespace PromotionEngine.Logic.Logic.Implementation
 		}
 
 		/// <summary>
+		/// This methods is responsible for accessing the coupon collection out of which 
+		/// the user can select one of the coupons after adding items to his/her cart.
 		/// Mocking the data for now till the database layer accessibility comes into picture
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>Collection of Coupons</returns>
 		public List<ProductCouponModel> GetAllCouponsAvailable(string productCouponApplied = "")
 		{
 			try
@@ -41,11 +40,12 @@ namespace PromotionEngine.Logic.Logic.Implementation
 		}
 
 		/// <summary>
-		///
+		/// This method is responsible for calling the calculate function which is 
+		/// based on the user's selected cart items and the coupon which he/she has applied to.
 		/// </summary>
 		/// <param name="productCartCollection"></param>
 		/// <param name="productCouponApplied"></param>
-		/// <returns></returns>
+		/// <returns>Total amount after calculation</returns>
 		public decimal CalculationBasedOnCouponLogic(List<ProductCartModel> productCartCollection, string productCouponApplied)
 		{
 			decimal totalAmount = 0; 

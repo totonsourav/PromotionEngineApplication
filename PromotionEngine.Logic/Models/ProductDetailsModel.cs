@@ -4,7 +4,8 @@ using System.ComponentModel;
 namespace PromotionEngine.Logic.Models
 {
 	/// <summary>
-	/// 
+	/// This class includes the properties related to the product information w.r.t:
+	/// the product id and the product unit price 
 	/// </summary>
 	public class ProductDetailsModel
 	 {

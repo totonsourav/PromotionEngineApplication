@@ -1,13 +1,10 @@
-﻿using System;
-using PromotionEngine.Logic.Logic.Interface;
+﻿using PromotionEngine.Logic.Logic.Interface;
 using PromotionEngine.Logic.Models;
+using System;
 using System.Collections.Generic;
 
 namespace PromotionEngine.Logic.Logic.Implementation
 {
-	/// <summary>
-	/// 
-	/// </summary>
 	public class ProductDetailsLogic : IProductDetailsLogic
 	{
 		IProductPromotionLogic _productPromotionLogic = null;
@@ -15,10 +12,14 @@ namespace PromotionEngine.Logic.Logic.Implementation
 		{
 			_productPromotionLogic = productPromotionLogic;
 		}
+
 		/// <summary>
+		/// This method is responsible for creating 
+		/// - the product info collection which the user see on the home page.
+		/// - Moreover, it also includes the available coupons  
 		/// Mocking the data for now till the database layer accessibility comes into picture
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>ProductBuyModel object</returns>
 		public ProductBuyModel GetAllProductsWithDetails()
 		{
 			try

@@ -1,15 +1,23 @@
-﻿using PromotionEngine.Logic.Logic.Interface;
+﻿using PromotionEngine.Logic.Logic.Abstract;
+using PromotionEngine.Logic.Logic.Interface;
 using PromotionEngine.Logic.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using PromotionEngine.Logic.Logic.Abstract;
 
 namespace PromotionEngine.Logic.Logic.Implementation
-{ 
+{
 	public class ProductCouponsAlgoLogic : AProductCouponsAlgoLogic
 	{
+		/// <summary>
+		/// This method is responsible for returning the coupon class instance 
+		/// based on the user's selection.
+		/// The user may or may not select any coupon but if user choose to 
+		/// opt for a coupon, he/she can select any one. 
+		/// </summary>
+		/// <param name="couponType"></param>
+		/// <returns>Selected coupon class instance</returns>
 		public override IProductCouponsAlgoLogic GetCouponType(string couponType)
 		{
 			try
@@ -29,6 +37,12 @@ namespace PromotionEngine.Logic.Logic.Implementation
 		
 		}
 	}
+
+	/// <summary>
+	/// This class will get instantiated 
+	/// - If the user does not select any coupon and click on CheckTotal button
+	/// - If the user select none option.
+	/// </summary>
 	public class DefaultCoupon : IProductCouponsAlgoLogic
 	{
 		public decimal CalculationBasedOnCouponLogic(List<ProductCartModel> productCartCollection)
@@ -49,6 +63,10 @@ namespace PromotionEngine.Logic.Logic.Implementation
 		} 	
 	}
 
+	/// <summary>
+	/// This class will get instantiated 
+	/// If the user selects CouponA and click on CheckTotal button.
+	/// </summary>
 	public class CouponA : IProductCouponsAlgoLogic
 	{
 		public decimal CalculationBasedOnCouponLogic(List<ProductCartModel> productCartCollection)
@@ -87,6 +105,11 @@ namespace PromotionEngine.Logic.Logic.Implementation
 			}		
 		}
 	}
+	
+	/// <summary>
+	/// This class will get instantiated 
+	/// If the user selects CouponB and click on CheckTotal button.
+	/// </summary>
 	public class CouponB : IProductCouponsAlgoLogic
 	{
 		public decimal CalculationBasedOnCouponLogic(List<ProductCartModel> productCartCollection)
@@ -127,6 +150,10 @@ namespace PromotionEngine.Logic.Logic.Implementation
 		}	
 	}
 
+	/// <summary>
+	/// This class will get instantiated 
+	/// If the user selects CouponC and click on CheckTotal button.
+	/// </summary>
 	public class CouponC : IProductCouponsAlgoLogic
 	{
 		public decimal CalculationBasedOnCouponLogic(List<ProductCartModel> productCartCollection)
@@ -177,8 +204,7 @@ namespace PromotionEngine.Logic.Logic.Implementation
 			catch (Exception ex)
 			{
 				throw ex;
-			}
-		
+			}	
 		}
 	}
 }

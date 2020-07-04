@@ -5,7 +5,9 @@ using System.ComponentModel.DataAnnotations;
 namespace PromotionEngine.Logic.Models
 {
 	/// <summary>
-	/// 
+	/// This class includes the properties w.r.t:
+	/// - the product details 
+	/// - the unit count which the user has selected per product
 	/// </summary>
 	public class ProductCartModel : ProductDetailsModel
     {
